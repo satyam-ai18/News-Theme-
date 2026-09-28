@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Reader - Laravel News</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Breaking Banner -->
+  <div class="breaking-banner">
+    <div class="container ticker-container">
+      <div class="ticker-badge">
+        <span class="pulse-dot"></span>
+        <span>STORY VIEW</span>
+      </div>
+      <div class="ticker-content" id="articleTicker">
+        Laravel 11.24 released with enhanced Concurrency Support & Distributed Locks!
+      </div>
+      <div class="ticker-time">Full Story</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon-wrapper">
+          <svg class="logo-icon" viewBox="0 0 54 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.5 0L0 12.99V38.97L22.5 51.96V0Z" fill="url(#laravel-grad-1)"/>
+            <path d="M54 18.19L31.5 5.2V51.17L54 38.18V18.19Z" fill="url(#laravel-grad-2)"/>
+            <defs>
+              <linearGradient id="laravel-grad-1" x1="0" y1="0" x2="22.5" y2="51.96" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF2D20"/>
+                <stop offset="1" stop-color="#E11D48"/>
+              </linearGradient>
+              <linearGradient id="laravel-grad-2" x1="31.5" y1="5.2" x2="54" y2="51.17" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FB7185"/>
+                <stop offset="1" stop-color="#BE123C"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">LARAVEL<span class="text-accent">NEWS</span></span>
+          <span class="logo-sub">Community Portal</span>
+        </div>
+      </a>
+
+      <!-- Main Navigation Menu -->
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="tutorials.html" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Tutorials</a>
+        <a href="packages.html" class="nav-link"><i class="fa-solid fa-cubes"></i> Packages</a>
+        <a href="about.html" class="nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
+        <a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Light/Dark Theme">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+
+        <a href="index.html" class="btn btn-secondary btn-sm">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Back to Feed</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Full Article View -->
+  <main class="main-content">
+    <div class="article-full-container">
+      
+      <!-- Breadcrumbs -->
+      <div class="article-breadcrumbs">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i>
+        <a href="index.html" id="breadcrumbCategory">News</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i>
+        <span style="color: var(--text-primary); font-weight: 500;" id="breadcrumbTitle">Full Story</span>
+      </div>
+
+      <!-- Hero Banner -->
+      <img src="assets/images/hero_banner.jpg" alt="Article Banner" class="article-hero-banner" id="articleHeroImg">
+
+      <!-- Title -->
+      <h1 class="article-full-title" id="articleTitle">Laravel 11 Revolution: Next-Generation Streamlined Architecture & Concurrency Control</h1>
+
+      <!-- Metadata & Controls -->
+      <div class="article-full-meta">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="font-size: 2rem;" id="articleAuthorAvatar">👨‍💻</div>
+          <div>
+            <div style="font-weight: 700; color: var(--text-primary);" id="articleAuthor">Taylor Otwell & Team</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);" id="articleDate">August 2026 • 5 min read</div>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <!-- Audio narration button -->
+          <button class="btn btn-secondary btn-sm" id="fullPageTtsBtn">
+            <i class="fa-solid fa-volume-high"></i>
+            <span id="ttsBtnLabel">Listen Article</span>
+          </button>
+
+          <!-- Share button -->
+          <button class="btn btn-secondary btn-icon" id="shareStoryBtn" title="Share Story">
+            <i class="fa-solid fa-share-nodes"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Body -->
+      <div class="article-content-body" id="articleBody">
+        <p>Laravel 11 introduces an ultra-minimal application skeleton that dramatically speeds up onboarding and simplifies project maintenance. With over 40% reduction in boilerplate files, configuration files and middleware have been moved into lean bootstrap callbacks.</p>
+        
+        <h2>⚡ Native Concurrency Primitives</h2>
+        <p>You can now easily dispatch concurrent tasks and wait for their execution using the native <code>Concurrency</code> facade:</p>
+        
+        <pre><code>use Illuminate\Support\Facades\Concurrency;
+
+[$user, $analytics, $orders] = Concurrency::run([
+    fn () => User::find($id),
+    fn () => Analytics::forUser($id),
+    fn () => Order::recentFor($id),
+]);</code></pre>
+
+        <h2>🔒 Distributed Locks for Eloquent Models</h2>
+        <p>Concurrency collisions in high-traffic APIs are now prevented effortlessly with atomic model locking features directly in the framework core.</p>
+
+        <p>The new architecture also features native support for Pest 3 out of the box, optimized cache tagging for Redis clusters, and automatic memory cleanup during heavy queue workloads.</p>
+      </div>
+
+      <!-- Back to All Stories -->
+      <div style="margin-top: 60px; padding: 24px; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <h4 style="margin-bottom: 4px; font-weight: 700;">Enjoyed this article?</h4>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Explore more tutorials, guides, and releases on our portal.</p>
+        </div>
+        <a href="index.html" class="btn btn-primary">Browse All Stories <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col footer-col-brand">
+          <div class="logo-text">
+            <span class="logo-main">LARAVEL<span class="text-accent">NEWS</span></span>
+          </div>
+          <p class="footer-about">
+            Empowering modern PHP and Laravel software engineers worldwide.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation & Pages</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home Page</a></li>
+            <li><a href="tutorials.html">Tutorials & Guides</a></li>
+            <li><a href="packages.html">Packages Directory</a></li>
+            <li><a href="about.html">About Our Portal</a></li>
+            <li><a href="contact.html">Contact & Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Ecosystem</h4>
+          <ul class="footer-links">
+            <li><a href="https://laravel.com" target="_blank">Laravel.com</a></li>
+            <li><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+            <li><a href="https://pestphp.com" target="_blank">Pest PHP</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Laravel News. Multi-Page Global Edition. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    // Load article details from ARTICLES array in app.js if present
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const articleId = parseInt(urlParams.get('id'), 10) || 1;
+      
+      if (typeof ARTICLES !== 'undefined') {
+        const article = ARTICLES.find(a => a.id === articleId) || ARTICLES[0];
+        if (article) {
+          const currentLang = localStorage.getItem('ln_language') || 'en';
+          const trans = (article.translations && article.translations[currentLang]) 
+                        ? article.translations[currentLang] 
+                        : article.translations['en'];
+
+          document.title = `${trans.title} - Laravel News`;
+          document.getElementById('articleTitle').textContent = trans.title;
+          document.getElementById('breadcrumbTitle').textContent = trans.title;
+          document.getElementById('breadcrumbCategory').textContent = article.category.toUpperCase();
+          document.getElementById('articleAuthor').textContent = article.author || 'Laravel Team';
+          document.getElementById('articleAuthorAvatar').textContent = article.authorAvatar || '👨‍💻';
+          document.getElementById('articleDate').textContent = `${article.date} • ${article.readTime}`;
+          document.getElementById('articleHeroImg').src = article.image;
+          document.getElementById('articleBody').innerHTML = trans.content;
+          document.getElementById('articleTicker').textContent = trans.title;
+        }
+      }
+
+      // Audio Reader for this full page
+      let speechUtterance = null;
+      let isPlaying = false;
+      const ttsBtn = document.getElementById('fullPageTtsBtn');
+      const ttsLabel = document.getElementById('ttsBtnLabel');
+
+      ttsBtn.addEventListener('click', () => {
+        if (!('speechSynthesis' in window)) {
+          alert('Sorry, text-to-speech is not supported by your browser.');
+          return;
+        }
+
+        if (isPlaying) {
+          window.speechSynthesis.cancel();
+          isPlaying = false;
+          ttsLabel.textContent = 'Listen Article';
+          ttsBtn.querySelector('i').className = 'fa-solid fa-volume-high';
+        } else {
+          window.speechSynthesis.cancel();
+          const textToRead = document.getElementById('articleTitle').innerText + '. ' + document.getElementById('articleBody').innerText;
+          speechUtterance = new SpeechSynthesisUtterance(textToRead);
+          
+          speechUtterance.onend = () => {
+            isPlaying = false;
+            ttsLabel.textContent = 'Listen Article';
+            ttsBtn.querySelector('i').className = 'fa-solid fa-volume-high';
+          };
+
+          speechUtterance.onerror = () => {
+            isPlaying = false;
+            ttsLabel.textContent = 'Listen Article';
+            ttsBtn.querySelector('i').className = 'fa-solid fa-volume-high';
+          };
+
+          window.speechSynthesis.speak(speechUtterance);
+          isPlaying = true;
+          ttsLabel.textContent = 'Stop Audio';
+          ttsBtn.querySelector('i').className = 'fa-solid fa-stop';
+        }
+      });
+
+      // Share button
+      document.getElementById('shareStoryBtn').addEventListener('click', () => {
+        if (navigator.share) {
+          navigator.share({ title: document.title, url: window.location.href }).catch(() => {});
+        } else {
+          navigator.clipboard.writeText(window.location.href);
+          alert('Story link copied to clipboard!');
+        }
+      });
+    });
+
+    // Theme toggle
+    const themeBtn = document.getElementById('themeToggleBtn');
+    if (localStorage.getItem('ln_theme') === 'light') {
+      document.body.classList.remove('dark-theme');
+      document.body.classList.add('light-theme');
+    }
+    themeBtn.addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light-theme');
+      document.body.classList.toggle('dark-theme', !isLight);
+      localStorage.setItem('ln_theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

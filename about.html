@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Laravel News</title>
+  <meta name="description" content="Learn about our mission to empower PHP & Laravel developers worldwide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Breaking News Ticker -->
+  <div class="breaking-banner">
+    <div class="container ticker-container">
+      <div class="ticker-badge">
+        <span class="pulse-dot"></span>
+        <span>COMMUNITY FIRST</span>
+      </div>
+      <div class="ticker-content">
+        Empowering over 60,000 developers worldwide with tutorials, packages, and releases.
+      </div>
+      <div class="ticker-time">Est. 2012</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon-wrapper">
+          <svg class="logo-icon" viewBox="0 0 54 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.5 0L0 12.99V38.97L22.5 51.96V0Z" fill="url(#laravel-grad-1)"/>
+            <path d="M54 18.19L31.5 5.2V51.17L54 38.18V18.19Z" fill="url(#laravel-grad-2)"/>
+            <defs>
+              <linearGradient id="laravel-grad-1" x1="0" y1="0" x2="22.5" y2="51.96" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF2D20"/>
+                <stop offset="1" stop-color="#E11D48"/>
+              </linearGradient>
+              <linearGradient id="laravel-grad-2" x1="31.5" y1="5.2" x2="54" y2="51.17" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FB7185"/>
+                <stop offset="1" stop-color="#BE123C"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">LARAVEL<span class="text-accent">NEWS</span></span>
+          <span class="logo-sub">About Our Mission</span>
+        </div>
+      </a>
+
+      <!-- Main Navigation Menu -->
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="tutorials.html" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Tutorials</a>
+        <a href="packages.html" class="nav-link"><i class="fa-solid fa-cubes"></i> Packages</a>
+        <a href="about.html" class="nav-link active"><i class="fa-solid fa-circle-info"></i> About</a>
+        <a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Light/Dark Theme">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+
+        <a href="contact.html" class="btn btn-primary btn-sm newsletter-nav-btn">
+          <i class="fa-regular fa-paper-plane"></i>
+          <span>Subscribe</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,45,32,0.12); color: var(--laravel-red); padding: 4px 14px; border-radius: 999px; font-weight: 700; font-size: 0.85rem; margin-bottom: 16px;">
+        <i class="fa-solid fa-heart"></i> OUR STORY
+      </div>
+      <h1 class="page-hero-title">Connecting the Global Laravel Community</h1>
+      <p class="page-hero-subtitle">We are dedicated to bringing high-quality technical education, open-source library spotlights, and official framework news to web creators all across the globe.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Stats Grid -->
+      <div class="about-stats-grid">
+        <div class="stat-box">
+          <div class="stat-number">60K+</div>
+          <div class="stat-label">Weekly Newsletter Subscribers</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">7</div>
+          <div class="stat-label">Global Languages Supported</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">1,200+</div>
+          <div class="stat-label">Tutorials & Architectural Guides</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Free & Open Access Forever</div>
+        </div>
+      </div>
+
+      <!-- Mission Section -->
+      <div class="showcase-card" style="margin: 60px 0;">
+        <div class="showcase-grid">
+          <div class="showcase-content">
+            <span class="showcase-badge">OUR PHILOSOPHY</span>
+            <h2 class="showcase-title">Why Multi-Language Accessibility Matters</h2>
+            <p class="showcase-desc">
+              Developer documentation and release announcements have historically been English-centric. Our mission with this platform is to break language barriers so that programmers in India, Latin America, Europe, Japan, and the Middle East can master modern PHP in their native language with real-time translation and native speech audio.
+            </p>
+            <div class="showcase-features">
+              <div class="showcase-item">
+                <div class="feature-icon"><i class="fa-solid fa-globe"></i></div>
+                <div>
+                  <h4>Zero-Latency Switching</h4>
+                  <p>Switch between 7 languages in a fraction of a second without waiting for network reloads.</p>
+                </div>
+              </div>
+              <div class="showcase-item">
+                <div class="feature-icon"><i class="fa-solid fa-code"></i></div>
+                <div>
+                  <h4>Production-Tested Code</h4>
+                  <p>Every snippet is rigorously benchmarked and tested against the latest Laravel stable versions.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-visual">
+            <img src="assets/images/packages_banner.jpg" alt="Developer Ecosystem" class="showcase-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div style="max-width: 800px; margin: 60px auto;">
+        <h2 style="font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 32px;">Frequently Asked Questions</h2>
+        
+        <div class="package-card" style="margin-bottom: 16px;">
+          <h4 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--laravel-red);">Is this portal free to read?</h4>
+          <p style="color: var(--text-secondary); line-height: 1.6;">Yes, 100%! All articles, package highlights, tutorials, and multi-language features are free for everyone without any paywalls.</p>
+        </div>
+
+        <div class="package-card" style="margin-bottom: 16px;">
+          <h4 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--laravel-red);">Can I submit a tutorial or package?</h4>
+          <p style="color: var(--text-secondary); line-height: 1.6;">Absolutely! Head over to our <a href="contact.html" style="color: var(--laravel-red); font-weight: 600;">Contact Page</a> and submit your open-source package or guest post proposal.</p>
+        </div>
+
+        <div class="package-card" style="margin-bottom: 16px;">
+          <h4 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--laravel-red);">How does the Text-to-Speech audio reader work?</h4>
+          <p style="color: var(--text-secondary); line-height: 1.6;">We use the modern HTML5 Web Speech API built directly into your browser to synthesize human-like voice narration in your selected language.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col footer-col-brand">
+          <div class="logo-text">
+            <span class="logo-main">LARAVEL<span class="text-accent">NEWS</span></span>
+          </div>
+          <p class="footer-about">
+            Empowering modern PHP and Laravel software engineers worldwide.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation & Pages</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home Page</a></li>
+            <li><a href="tutorials.html">Tutorials & Guides</a></li>
+            <li><a href="packages.html">Packages Directory</a></li>
+            <li><a href="about.html">About Our Portal</a></li>
+            <li><a href="contact.html">Contact & Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Ecosystem</h4>
+          <ul class="footer-links">
+            <li><a href="https://laravel.com" target="_blank">Laravel.com</a></li>
+            <li><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+            <li><a href="https://pestphp.com" target="_blank">Pest PHP</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Laravel News. About Portal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const themeBtn = document.getElementById('themeToggleBtn');
+    if (localStorage.getItem('ln_theme') === 'light') {
+      document.body.classList.remove('dark-theme');
+      document.body.classList.add('light-theme');
+    }
+    themeBtn.addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light-theme');
+      document.body.classList.toggle('dark-theme', !isLight);
+      localStorage.setItem('ln_theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

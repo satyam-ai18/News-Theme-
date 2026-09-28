@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packages Directory - Laravel News</title>
+  <meta name="description" content="Discover top open-source Laravel packages, developer tools, and extensions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Breaking News Ticker -->
+  <div class="breaking-banner">
+    <div class="container ticker-container">
+      <div class="ticker-badge">
+        <span class="pulse-dot"></span>
+        <span>PACKAGE DIRECTORY</span>
+      </div>
+      <div class="ticker-content">
+        Explore 1,000+ curated Laravel packages with one-click composer installation commands!
+      </div>
+      <div class="ticker-time">Verified Safe</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon-wrapper">
+          <svg class="logo-icon" viewBox="0 0 54 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.5 0L0 12.99V38.97L22.5 51.96V0Z" fill="url(#laravel-grad-1)"/>
+            <path d="M54 18.19L31.5 5.2V51.17L54 38.18V18.19Z" fill="url(#laravel-grad-2)"/>
+            <defs>
+              <linearGradient id="laravel-grad-1" x1="0" y1="0" x2="22.5" y2="51.96" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF2D20"/>
+                <stop offset="1" stop-color="#E11D48"/>
+              </linearGradient>
+              <linearGradient id="laravel-grad-2" x1="31.5" y1="5.2" x2="54" y2="51.17" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FB7185"/>
+                <stop offset="1" stop-color="#BE123C"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">LARAVEL<span class="text-accent">NEWS</span></span>
+          <span class="logo-sub">Package Ecosystem</span>
+        </div>
+      </a>
+
+      <!-- Main Navigation Menu -->
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="tutorials.html" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Tutorials</a>
+        <a href="packages.html" class="nav-link active"><i class="fa-solid fa-cubes"></i> Packages</a>
+        <a href="about.html" class="nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
+        <a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Light/Dark Theme">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+
+        <a href="contact.html" class="btn btn-primary btn-sm newsletter-nav-btn">
+          <i class="fa-regular fa-paper-plane"></i>
+          <span>Subscribe</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,45,32,0.12); color: var(--laravel-red); padding: 4px 14px; border-radius: 999px; font-weight: 700; font-size: 0.85rem; margin-bottom: 16px;">
+        <i class="fa-solid fa-box-archive"></i> OPEN-SOURCE TOOLING
+      </div>
+      <h1 class="page-hero-title">Premier Laravel Packages & Libraries</h1>
+      <p class="page-hero-subtitle">Accelerate your software engineering workflow with production-tested, secure, and actively maintained packages from the global developer community.</p>
+    </div>
+  </section>
+
+  <!-- Packages Grid -->
+  <main class="main-content">
+    <div class="container">
+      <div class="packages-grid">
+
+        <!-- Package 1: Filament -->
+        <div class="package-card">
+          <div class="package-header">
+            <div class="package-icon-box"><i class="fa-solid fa-sliders"></i></div>
+            <div class="package-stars"><i class="fa-solid fa-star"></i> 18.4k</div>
+          </div>
+          <h3 class="package-name">Filament v3</h3>
+          <p class="package-desc">The modern full-stack admin panel, form builder, datatables, notifications, and dashboard toolkit for TALL-stack developers.</p>
+          <div class="package-install-box">
+            <code>composer require filament/filament</code>
+            <button class="copy-btn" onclick="copyCode(this, 'composer require filament/filament')"><i class="fa-regular fa-copy"></i></button>
+          </div>
+          <a href="https://filamentphp.com" target="_blank" rel="noreferrer" class="btn btn-secondary btn-sm" style="text-align: center; justify-content: center;">Official Docs <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <!-- Package 2: Livewire 3 -->
+        <div class="package-card">
+          <div class="package-header">
+            <div class="package-icon-box"><i class="fa-solid fa-bolt"></i></div>
+            <div class="package-stars"><i class="fa-solid fa-star"></i> 22.8k</div>
+          </div>
+          <h3 class="package-name">Laravel Livewire 3</h3>
+          <p class="package-desc">Build reactive, dynamic, modern interfaces without ever leaving the comfort of Laravel Blade and pure PHP.</p>
+          <div class="package-install-box">
+            <code>composer require livewire/livewire</code>
+            <button class="copy-btn" onclick="copyCode(this, 'composer require livewire/livewire')"><i class="fa-regular fa-copy"></i></button>
+          </div>
+          <a href="https://livewire.laravel.com" target="_blank" rel="noreferrer" class="btn btn-secondary btn-sm" style="text-align: center; justify-content: center;">Official Docs <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <!-- Package 3: Pest PHP -->
+        <div class="package-card">
+          <div class="package-header">
+            <div class="package-icon-box"><i class="fa-solid fa-vial-circle-check"></i></div>
+            <div class="package-stars"><i class="fa-solid fa-star"></i> 14.1k</div>
+          </div>
+          <h3 class="package-name">Pest 3.0</h3>
+          <p class="package-desc">An elegant PHP Testing Framework with a focus on simplicity, readability, architectural testing, and mutation testing.</p>
+          <div class="package-install-box">
+            <code>composer require pestphp/pest --dev</code>
+            <button class="copy-btn" onclick="copyCode(this, 'composer require pestphp/pest --dev')"><i class="fa-regular fa-copy"></i></button>
+          </div>
+          <a href="https://pestphp.com" target="_blank" rel="noreferrer" class="btn btn-secondary btn-sm" style="text-align: center; justify-content: center;">Official Docs <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <!-- Package 4: Pulse -->
+        <div class="package-card">
+          <div class="package-header">
+            <div class="package-icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="package-stars"><i class="fa-solid fa-star"></i> 7.3k</div>
+          </div>
+          <h3 class="package-name">Laravel Pulse</h3>
+          <p class="package-desc">Real-time application performance insights: track slow queries, bottleneck requests, memory usage, and queue jobs effortlessly.</p>
+          <div class="package-install-box">
+            <code>composer require laravel/pulse</code>
+            <button class="copy-btn" onclick="copyCode(this, 'composer require laravel/pulse')"><i class="fa-regular fa-copy"></i></button>
+          </div>
+          <a href="https://pulse.laravel.com" target="_blank" rel="noreferrer" class="btn btn-secondary btn-sm" style="text-align: center; justify-content: center;">Official Docs <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <!-- Package 5: Spatie Permission -->
+        <div class="package-card">
+          <div class="package-header">
+            <div class="package-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="package-stars"><i class="fa-solid fa-star"></i> 13.9k</div>
+          </div>
+          <h3 class="package-name">Spatie Permission</h3>
+          <p class="package-desc">The industry-standard role and permission manager for Laravel Eloquent models, with multi-guard authorization support.</p>
+          <div class="package-install-box">
+            <code>composer require spatie/laravel-permission</code>
+            <button class="copy-btn" onclick="copyCode(this, 'composer require spatie/laravel-permission')"><i class="fa-regular fa-copy"></i></button>
+          </div>
+          <a href="https://spatie.be/docs/laravel-permission" target="_blank" rel="noreferrer" class="btn btn-secondary btn-sm" style="text-align: center; justify-content: center;">Official Docs <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <!-- Package 6: Horizon -->
+        <div class="package-card">
+          <div class="package-header">
+            <div class="package-icon-box"><i class="fa-solid fa-network-wired"></i></div>
+            <div class="package-stars"><i class="fa-solid fa-star"></i> 8.6k</div>
+          </div>
+          <h3 class="package-name">Laravel Horizon</h3>
+          <p class="package-desc">Supercharge your Redis queues with real-time job throughput graphs, failed job retries, metrics, and auto-balancing supervisors.</p>
+          <div class="package-install-box">
+            <code>composer require laravel/horizon</code>
+            <button class="copy-btn" onclick="copyCode(this, 'composer require laravel/horizon')"><i class="fa-regular fa-copy"></i></button>
+          </div>
+          <a href="https://laravel.com/docs/horizon" target="_blank" rel="noreferrer" class="btn btn-secondary btn-sm" style="text-align: center; justify-content: center;">Official Docs <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col footer-col-brand">
+          <div class="logo-text">
+            <span class="logo-main">LARAVEL<span class="text-accent">NEWS</span></span>
+          </div>
+          <p class="footer-about">
+            Curating the best packages, tools, and libraries across the worldwide PHP community.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation & Pages</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home Page</a></li>
+            <li><a href="tutorials.html">Tutorials & Guides</a></li>
+            <li><a href="packages.html">Packages Directory</a></li>
+            <li><a href="about.html">About Our Portal</a></li>
+            <li><a href="contact.html">Contact & Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Ecosystem</h4>
+          <ul class="footer-links">
+            <li><a href="https://laravel.com" target="_blank">Laravel.com</a></li>
+            <li><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+            <li><a href="https://pestphp.com" target="_blank">Pest PHP</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Laravel News. Packages Edition. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Copy command
+    function copyCode(btn, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        btn.innerHTML = '<i class="fa-solid fa-check" style="color: #22c55e;"></i>';
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+        }, 1800);
+      });
+    }
+
+    // Theme toggle
+    const themeBtn = document.getElementById('themeToggleBtn');
+    if (localStorage.getItem('ln_theme') === 'light') {
+      document.body.classList.remove('dark-theme');
+      document.body.classList.add('light-theme');
+    }
+    themeBtn.addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light-theme');
+      document.body.classList.toggle('dark-theme', !isLight);
+      localStorage.setItem('ln_theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

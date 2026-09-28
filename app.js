@@ -1080,17 +1080,17 @@ function renderArticles() {
             <span class="card-author-avatar">${art.authorAvatar}</span>
             <span>${art.author}</span>
           </div>
-          <button class="card-read-link read-article-btn" data-id="${art.id}">
+          <a href="article.html?id=${art.id}" class="card-read-link read-article-btn">
             <span>${getTranslation('btn_read_article')}</span>
             <i class="fa-solid fa-arrow-right"></i>
-          </button>
+          </a>
         </div>
       </div>
     `;
 
     // Click handler to open article reader
-    card.querySelector('.read-article-btn').addEventListener('click', () => {
-      openArticleModal(art.id);
+    card.querySelector('.card-title').addEventListener('click', () => {
+      window.location.href = `article.html?id=${art.id}`;
     });
 
     // Bookmark toggle
