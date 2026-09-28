@@ -1,17 +1,511 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=laravel/laravel-news/">
-  <title>Laravel News - Loading Portal...</title>
-  <script>
-    window.location.replace("./laravel/laravel-news/");
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laravel News - Framework Updates, Tutorials, Packages & Multi-Language Hub</title>
+  <meta name="description" content="Laravel News is the premier blog of Laravel framework with real-time multi-language translation, tutorials, news, and packages.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: #0B0F19; color: #F8FAFC; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center;">
-  <div>
-    <h2 style="margin-bottom: 12px;">Loading Laravel News Portal...</h2>
-    <p>If you are not redirected automatically, <a href="laravel/laravel-news/" style="color: #FF2D20; text-decoration: underline;">click here to enter</a>.</p>
+<body class="dark-theme">
+  <!-- Breaking News Ticker -->
+  <div class="breaking-banner">
+    <div class="container ticker-container">
+      <div class="ticker-badge">
+        <span class="pulse-dot"></span>
+        <span data-i18n="ticker_badge">LATEST UPDATE</span>
+      </div>
+      <div class="ticker-content" id="tickerContent" data-i18n="ticker_text">
+        Laravel 11.24 released with enhanced Concurrency Support, faster Queue Workers & Native Distributed Locks!
+      </div>
+      <div class="ticker-time" id="tickerTime">Just now</div>
+    </div>
   </div>
+
+  <!-- Header Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo" id="brandLogo">
+        <div class="logo-icon-wrapper">
+          <svg class="logo-icon" viewBox="0 0 54 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.5 0L0 12.99V38.97L22.5 51.96V0Z" fill="url(#laravel-grad-1)"/>
+            <path d="M54 18.19L31.5 5.2V51.17L54 38.18V18.19Z" fill="url(#laravel-grad-2)"/>
+            <defs>
+              <linearGradient id="laravel-grad-1" x1="0" y1="0" x2="22.5" y2="51.96" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF2D20"/>
+                <stop offset="1" stop-color="#E11D48"/>
+              </linearGradient>
+              <linearGradient id="laravel-grad-2" x1="31.5" y1="5.2" x2="54" y2="51.17" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FB7185"/>
+                <stop offset="1" stop-color="#BE123C"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">LARAVEL<span class="text-accent">NEWS</span></span>
+          <span class="logo-sub" data-i18n="logo_tagline">Official Community Portal</span>
+        </div>
+      </a>
+
+      <!-- Search Bar -->
+      <div class="search-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search tutorials, packages, news..." data-i18n-placeholder="search_placeholder" autocomplete="off">
+        <button id="clearSearch" class="clear-search-btn" title="Clear search"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <!-- Navigation Actions -->
+      <div class="header-actions">
+        <!-- Language Switcher Dropdown (Primary Highlight) -->
+        <div class="language-dropdown-wrapper" id="langDropdownWrapper">
+          <button class="lang-btn" id="langDropdownBtn" aria-expanded="false" aria-haspopup="true" title="Change Website Language">
+            <span class="lang-flag" id="activeLangFlag">🇺🇸</span>
+            <span class="lang-name" id="activeLangName">English</span>
+            <i class="fa-solid fa-chevron-down lang-chevron"></i>
+          </button>
+
+          <div class="lang-menu" id="langMenu" role="menu">
+            <div class="lang-menu-header">
+              <i class="fa-solid fa-language"></i>
+              <span data-i18n="select_language">Select Website Language</span>
+            </div>
+            <div class="lang-list" id="langList">
+              <!-- Rendered via JS -->
+            </div>
+            <div class="lang-menu-footer">
+              <div id="google_translate_element"></div>
+              <span class="lang-hint" data-i18n="instant_translation_hint">⚡ Instant Live Translation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Light/Dark Theme">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+
+        <!-- Bookmarks Quick View Button -->
+        <button class="icon-btn" id="bookmarksBtn" title="Saved Bookmarks">
+          <i class="fa-regular fa-bookmark"></i>
+          <span class="badge" id="bookmarkCount">0</span>
+        </button>
+
+        <!-- Newsletter Button -->
+        <a href="#newsletterSection" class="btn btn-primary btn-sm newsletter-nav-btn">
+          <i class="fa-regular fa-paper-plane"></i>
+          <span data-i18n="nav_newsletter">Newsletter</span>
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Category Nav Bar -->
+    <nav class="category-nav">
+      <div class="container category-nav-inner">
+        <ul class="category-list" id="categoryList">
+          <li class="category-item active" data-category="all">
+            <button class="category-btn"><i class="fa-solid fa-globe"></i> <span data-i18n="cat_all">All Updates</span></button>
+          </li>
+          <li class="category-item" data-category="news">
+            <button class="category-btn"><i class="fa-solid fa-bolt"></i> <span data-i18n="cat_news">News</span></button>
+          </li>
+          <li class="category-item" data-category="tutorials">
+            <button class="category-btn"><i class="fa-solid fa-code"></i> <span data-i18n="cat_tutorials">Tutorials</span></button>
+          </li>
+          <li class="category-item" data-category="packages">
+            <button class="category-btn"><i class="fa-solid fa-box-open"></i> <span data-i18n="cat_packages">Packages</span></button>
+          </li>
+          <li class="category-item" data-category="releases">
+            <button class="category-btn"><i class="fa-solid fa-rocket"></i> <span data-i18n="cat_releases">Releases</span></button>
+          </li>
+          <li class="category-item" data-category="podcasts">
+            <button class="category-btn"><i class="fa-solid fa-microphone-lines"></i> <span data-i18n="cat_podcasts">Podcasts</span></button>
+          </li>
+          <li class="category-item" data-category="community">
+            <button class="category-btn"><i class="fa-solid fa-users"></i> <span data-i18n="cat_community">Community</span></button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Language Banner Notification (Visible when switched) -->
+  <div class="lang-toast" id="langToast">
+    <div class="lang-toast-content">
+      <i class="fa-solid fa-circle-check toast-icon"></i>
+      <span id="langToastText">Language updated successfully!</span>
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <main class="main-content">
+    <!-- Hero Section: Spotlight Featured Article -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Main Hero Featured Card -->
+          <div class="hero-card" id="heroFeaturedCard">
+            <div class="hero-image-wrapper">
+              <img src="assets/images/hero_banner.jpg" alt="Laravel 11 Master Showcase" class="hero-img" id="heroFeaturedImage">
+              <div class="hero-overlay"></div>
+              <span class="hero-tag" data-i18n="tag_featured">✨ FEATURED STORY</span>
+            </div>
+            <div class="hero-body">
+              <div class="article-meta">
+                <span class="badge badge-primary" data-i18n="cat_news">News</span>
+                <span class="meta-dot"></span>
+                <span class="meta-item"><i class="fa-regular fa-clock"></i> <span data-i18n="read_time_5">5 min read</span></span>
+                <span class="meta-dot"></span>
+                <span class="meta-item"><i class="fa-regular fa-calendar"></i> August 2026</span>
+              </div>
+              <h1 class="hero-title" id="heroTitle" data-i18n="hero_title">
+                Laravel 11 Revolution: Next-Generation Streamlined Architecture & Concurrency Control
+              </h1>
+              <p class="hero-excerpt" id="heroExcerpt" data-i18n="hero_excerpt">
+                Discover the streamlined directory structure, native concurrency primitives, optimized model caching, and lightning-fast Pest PHP integration in the newest Laravel ecosystem.
+              </p>
+              <div class="hero-footer">
+                <div class="author-info">
+                  <div class="author-avatar-group">
+                    <div class="avatar">👨‍💻</div>
+                    <div>
+                      <h4 class="author-name">Taylor Otwell & Team</h4>
+                      <p class="author-role" data-i18n="role_creator">Laravel Core Team</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="hero-actions">
+                  <button class="btn btn-secondary btn-icon bookmark-trigger" data-id="1" title="Bookmark article">
+                    <i class="fa-regular fa-bookmark"></i>
+                  </button>
+                  <button class="btn btn-primary read-article-btn" data-id="1">
+                    <span data-i18n="btn_read_article">Read Full Story</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary Hero Sidebar: Trending Updates -->
+          <div class="hero-sidebar">
+            <div class="sidebar-header">
+              <div class="sidebar-title-wrapper">
+                <i class="fa-solid fa-fire text-accent"></i>
+                <h3 class="sidebar-title" data-i18n="trending_topics">Trending Topics</h3>
+              </div>
+              <span class="live-pill" data-i18n="live_pill">LIVE</span>
+            </div>
+
+            <div class="trending-list" id="trendingList">
+              <!-- Dynamic trending items -->
+            </div>
+
+            <!-- Ecosystem Quick Spotlight Card -->
+            <div class="ecosystem-mini-card">
+              <div class="eco-mini-header">
+                <i class="fa-solid fa-cubes-stacked text-accent"></i>
+                <h4 data-i18n="ecosystem_box_title">Laravel Ecosystem</h4>
+              </div>
+              <p class="eco-mini-desc" data-i18n="ecosystem_box_desc">
+                Supercharge your workflow with modern first-party tooling: Livewire 3, Inertia 2, Filament v3, and Herd Pro.
+              </p>
+              <div class="eco-tags">
+                <span class="eco-tag">Livewire</span>
+                <span class="eco-tag">Filament</span>
+                <span class="eco-tag">Pest 3</span>
+                <span class="eco-tag">Inertia</span>
+                <span class="eco-tag">Folio</span>
+                <span class="eco-tag">Pulse</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Language Quick Bar -->
+    <section class="lang-feature-bar">
+      <div class="container lang-feature-inner">
+        <div class="lang-feature-info">
+          <div class="lang-globe-icon">
+            <i class="fa-solid fa-earth-americas"></i>
+          </div>
+          <div>
+            <h4 data-i18n="multilingual_hub_title">Global Multi-Language Laravel Hub</h4>
+            <p data-i18n="multilingual_hub_desc">Switch languages instantly using the selector above or the quick buttons below:</p>
+          </div>
+        </div>
+        <div class="lang-quick-buttons" id="quickLangButtons">
+          <button class="quick-lang-btn active" data-lang="en"><span>🇺🇸</span> English</button>
+          <button class="quick-lang-btn" data-lang="hi"><span>🇮🇳</span> हिन्दी (Hindi)</button>
+          <button class="quick-lang-btn" data-lang="es"><span>🇪🇸</span> Español (Spanish)</button>
+          <button class="quick-lang-btn" data-lang="fr"><span>🇫🇷</span> Français (French)</button>
+          <button class="quick-lang-btn" data-lang="de"><span>🇩🇪</span> Deutsch (German)</button>
+          <button class="quick-lang-btn" data-lang="ja"><span>🇯🇵</span> 日本語 (Japanese)</button>
+          <button class="quick-lang-btn" data-lang="ar"><span>🇸🇦</span> العربية (Arabic)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Articles Grid Section -->
+    <section class="articles-section" id="articlesSection">
+      <div class="container">
+        <!-- Section Header with Filters -->
+        <div class="section-header">
+          <div>
+            <div class="section-subtitle" data-i18n="explore_curated">EXPLORE CURATED CONTENT</div>
+            <h2 class="section-title" id="gridHeading" data-i18n="latest_news_tutorials">Latest Articles & Tutorials</h2>
+          </div>
+          <div class="grid-controls">
+            <span class="article-count-label" id="articleCountLabel">Showing 8 of 8 stories</span>
+            <div class="view-mode-toggle">
+              <button class="view-btn active" id="gridViewBtn" title="Grid View"><i class="fa-solid fa-table-cells-large"></i></button>
+              <button class="view-btn" id="listViewBtn" title="List View"><i class="fa-solid fa-list-ul"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="articles-grid" id="articlesGrid">
+          <!-- Articles injected via app.js -->
+        </div>
+
+        <!-- Empty Search State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <div class="empty-icon"><i class="fa-solid fa-filter-circle-xmark"></i></div>
+          <h3 data-i18n="empty_search_title">No matching stories found</h3>
+          <p data-i18n="empty_search_desc">Try searching for different keywords or reset your category filter.</p>
+          <button class="btn btn-secondary" id="resetFilterBtn" data-i18n="btn_reset_filters">Reset Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Laravel Ecosystem Package Showcase -->
+    <section class="showcase-section">
+      <div class="container">
+        <div class="showcase-card">
+          <div class="showcase-grid">
+            <div class="showcase-content">
+              <span class="showcase-badge" data-i18n="badge_tooling">DEVELOPER TOOLING</span>
+              <h2 class="showcase-title" data-i18n="showcase_title">Master Modern PHP with Laravel's Elegant Tooling</h2>
+              <p class="showcase-desc" data-i18n="showcase_desc">
+                From zero-configuration local environments with Herd to real-time application monitoring with Pulse and full-stack reactive components with Livewire 3.
+              </p>
+              <div class="showcase-features">
+                <div class="showcase-item">
+                  <div class="feature-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                  <div>
+                    <h4 data-i18n="feat_herd_title">Laravel Herd</h4>
+                    <p data-i18n="feat_herd_desc">Blazing fast native PHP and Node environment for macOS and Windows.</p>
+                  </div>
+                </div>
+                <div class="showcase-item">
+                  <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                  <div>
+                    <h4 data-i18n="feat_pulse_title">Laravel Pulse</h4>
+                    <p data-i18n="feat_pulse_desc">Real-time application performance and queue health insights.</p>
+                  </div>
+                </div>
+                <div class="showcase-item">
+                  <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                  <div>
+                    <h4 data-i18n="feat_sanctum_title">Sanctum & Pennant</h4>
+                    <p data-i18n="feat_sanctum_desc">Featherweight API auth and seamless feature flag management.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-visual">
+              <img src="assets/images/packages_banner.jpg" alt="Developer Tooling Showcase" class="showcase-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Weekly Newsletter Subscription Section -->
+    <section class="newsletter-section" id="newsletterSection">
+      <div class="container">
+        <div class="newsletter-card">
+          <div class="newsletter-content">
+            <div class="newsletter-icon-badge">
+              <i class="fa-regular fa-envelope-open"></i>
+            </div>
+            <h2 class="newsletter-title" data-i18n="newsletter_title">Join 60,000+ Laravel Developers</h2>
+            <p class="newsletter-desc" data-i18n="newsletter_desc">
+              Get the latest Laravel news, package releases, and in-depth tutorials delivered directly to your inbox every single week. No spam, unsubscribe anytime.
+            </p>
+            <form class="newsletter-form" id="newsletterForm">
+              <div class="input-group">
+                <i class="fa-regular fa-envelope input-icon"></i>
+                <input type="email" id="newsletterEmail" placeholder="Enter your email address..." data-i18n-placeholder="email_placeholder" required>
+              </div>
+              <button type="submit" class="btn btn-primary newsletter-submit-btn">
+                <span data-i18n="btn_subscribe">Subscribe Free</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </form>
+            <div class="newsletter-privacy" data-i18n="newsletter_privacy">
+              🔒 We respect your privacy. Instant unsubscribe available in every email.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Article Modal Reader -->
+  <div class="modal-backdrop" id="articleModal" aria-hidden="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-meta" id="modalMeta">
+          <!-- Injected via JS -->
+        </div>
+        <div class="modal-controls">
+          <!-- Text to Speech / Listen button -->
+          <button class="modal-action-btn" id="ttsBtn" title="Listen to Article (Text to Speech)">
+            <i class="fa-solid fa-volume-high"></i>
+            <span data-i18n="btn_listen">Listen</span>
+          </button>
+          <!-- Share Button -->
+          <button class="modal-action-btn" id="shareBtn" title="Share article">
+            <i class="fa-solid fa-share-nodes"></i>
+          </button>
+          <!-- Close Button -->
+          <button class="modal-close-btn" id="closeModalBtn" title="Close modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Bookmarks Drawer Modal -->
+  <div class="drawer-backdrop" id="bookmarksDrawer">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <div class="drawer-title-group">
+          <i class="fa-solid fa-bookmark text-accent"></i>
+          <h3 data-i18n="saved_bookmarks_title">Saved Bookmarks</h3>
+        </div>
+        <button class="drawer-close-btn" id="closeBookmarksBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="drawer-body" id="bookmarksList">
+        <!-- Injected bookmarks -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Multi-Language Button -->
+  <div class="floating-lang-toggle" id="floatingLangToggle">
+    <button class="floating-btn" id="floatingLangBtn" title="Change Language">
+      <span class="floating-flag" id="floatingFlag">🇺🇸</span>
+      <span class="floating-code" id="floatingCode">EN</span>
+      <i class="fa-solid fa-globe floating-globe"></i>
+    </button>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <!-- Footer Col 1 -->
+        <div class="footer-col footer-col-brand">
+          <div class="logo-text">
+            <span class="logo-main">LARAVEL<span class="text-accent">NEWS</span></span>
+          </div>
+          <p class="footer-about" data-i18n="footer_about">
+            The official community portal for all things Laravel, PHP, Livewire, and modern web development.
+          </p>
+          <div class="footer-socials">
+            <a href="https://twitter.com/laravelnews" target="_blank" rel="noreferrer" class="social-link" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://github.com/laravel" target="_blank" rel="noreferrer" class="social-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" class="social-link" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://discord.com" target="_blank" rel="noreferrer" class="social-link" title="Discord"><i class="fa-brands fa-discord"></i></a>
+          </div>
+        </div>
+
+        <!-- Footer Col 2 -->
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_categories">Categories</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="cat-filter-link" data-category="news" data-i18n="cat_news">News</a></li>
+            <li><a href="#" class="cat-filter-link" data-category="tutorials" data-i18n="cat_tutorials">Tutorials</a></li>
+            <li><a href="#" class="cat-filter-link" data-category="packages" data-i18n="cat_packages">Packages</a></li>
+            <li><a href="#" class="cat-filter-link" data-category="releases" data-i18n="cat_releases">Releases</a></li>
+            <li><a href="#" class="cat-filter-link" data-category="podcasts" data-i18n="cat_podcasts">Podcasts</a></li>
+          </ul>
+        </div>
+
+        <!-- Footer Col 3 -->
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_ecosystem">Ecosystem</h4>
+          <ul class="footer-links">
+            <li><a href="https://laravel.com" target="_blank" rel="noreferrer">Laravel.com</a></li>
+            <li><a href="https://laracasts.com" target="_blank" rel="noreferrer">Laracasts</a></li>
+            <li><a href="https://forge.laravel.com" target="_blank" rel="noreferrer">Laravel Forge</a></li>
+            <li><a href="https://vapor.laravel.com" target="_blank" rel="noreferrer">Laravel Vapor</a></li>
+            <li><a href="https://pestphp.com" target="_blank" rel="noreferrer">Pest PHP</a></li>
+          </ul>
+        </div>
+
+        <!-- Footer Col 4: Quick Language Matrix -->
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_languages">Languages</h4>
+          <div class="footer-lang-grid">
+            <button class="footer-lang-btn" data-lang="en">🇺🇸 English</button>
+            <button class="footer-lang-btn" data-lang="hi">🇮🇳 हिन्दी</button>
+            <button class="footer-lang-btn" data-lang="es">🇪🇸 Español</button>
+            <button class="footer-lang-btn" data-lang="fr">🇫🇷 Français</button>
+            <button class="footer-lang-btn" data-lang="de">🇩🇪 Deutsch</button>
+            <button class="footer-lang-btn" data-lang="ja">🇯🇵 日本語</button>
+            <button class="footer-lang-btn" data-lang="ar">🇸🇦 العربية</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copyright">© 2026 Laravel News. Multi-Language Global Edition. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" data-i18n="privacy_policy">Privacy Policy</a>
+          <span>•</span>
+          <a href="#" data-i18n="terms_service">Terms of Service</a>
+          <span>•</span>
+          <a href="#" data-i18n="advertise">Advertise</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+  <!-- Google Translate script helper as an automatic multi-language fallback -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

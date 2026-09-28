@@ -29,17 +29,14 @@ A feature-rich, high-performance web portal theme inspired by the Laravel ecosys
 ## 📁 Project Structure
 
 ```text
-laravel/
-├── laravel/
-│   └── laravel-news/
-│       ├── index.html        # Main portal page with modern semantic markup
-│       ├── style.css         # Complete design system & responsive styling (2000+ lines)
-│       ├── app.js            # Translation engine, state manager & interactivity
-│       ├── assets/
-│       │   └── images/       # High-resolution banners and assets
-│       └── vendor/           # Supporting vendor dependencies
-├── .gitignore                # Git ignore rules
-└── README.md                 # Project documentation
+├── index.html        # Main portal page with modern semantic markup
+├── style.css         # Complete design system & responsive styling (2000+ lines)
+├── app.js            # Translation engine, state manager & interactivity
+├── assets/
+│   └── images/       # High-resolution banners and assets
+├── vendor/           # Supporting vendor dependencies
+├── .gitignore        # Git ignore rules
+└── README.md         # Project documentation
 ```
 
 ---
@@ -52,7 +49,7 @@ laravel/
    ```
 
 2. **Open the project:**
-   Simply double-click or open `laravel/laravel-news/index.html` in any modern web browser (Google Chrome, Edge, Brave, Firefox, Safari).
+   Simply double-click or open `index.html` in any modern web browser (Google Chrome, Edge, Brave, Firefox, Safari).
 
    Or launch using a local static server (e.g., VS Code Live Server / Python):
    ```bash
